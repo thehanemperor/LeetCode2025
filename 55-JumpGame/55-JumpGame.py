@@ -1,5 +1,6 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
+        return self.followUp(nums)
         n = len(nums)
         dp = [False] * n
         dp[n-1] = True
@@ -11,3 +12,12 @@ class Solution:
                     break
         
         return dp[0]
+
+    def followUp(self, nums):
+        n = len(nums)
+        lastPos = n -1
+        for i in range(n-2,-1,-1):
+            if nums[i] + i>= lastPos:
+                lastPos = i
+        
+        return lastPos == 0
