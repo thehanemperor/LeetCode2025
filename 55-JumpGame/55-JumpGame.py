@@ -1,6 +1,5 @@
 class Solution:
     def canJump(self, nums: List[int]) -> bool:
-        return self.followUp(nums)
         n = len(nums)
         dp = [False] * n
         dp[n-1] = True
