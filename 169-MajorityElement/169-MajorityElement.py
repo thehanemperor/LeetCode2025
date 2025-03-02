@@ -1,6 +1,5 @@
 class Solution:
     def majorityElement(self, nums: List[int]) -> int:
-        return self.followUp(nums)
         seen = {}
         for n in nums:
             seen[n] = seen.get(n,0) + 1
