@@ -1,6 +1,6 @@
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        return self.followUp(prices)
+        
         stack = []
         res = 0
         n = len(prices)
