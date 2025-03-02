@@ -1,6 +1,5 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        return self.followUp(nums)
         n = len(nums)
         left = [1] * n
         right = [1] * n
