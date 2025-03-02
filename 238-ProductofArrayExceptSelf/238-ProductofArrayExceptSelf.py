@@ -1,5 +1,6 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
+        return self.followUp(nums)
         n = len(nums)
         left = [1] * n
         right = [1] * n
@@ -13,5 +14,20 @@ class Solution:
 
         for i in range(n):
             res.append(left[i]* right[i])
+
+        return res
+
+    def followUp(self,nums):
+        n = len(nums)
+        res = [1] * n
+
+        for i in range(1,n):
+            res[i] = nums[i-1] * res[i-1]
+
+        mul = 1
+        for i in range(n-1,-1,-1):
+            
+            res[i] *= mul
+            mul *= nums[i]
 
         return res
