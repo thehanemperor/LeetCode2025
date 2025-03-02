@@ -3,18 +3,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        
-        res = []
         n = len(nums)
         k %= n
-        if k == 0:
-            return 
-        index = n -k
-        for i in range(index,n):
-            res.append(nums[i])
+        self.reverse(nums, 0, n-1)
+        self.reverse(nums, 0, k-1)
+        self.reverse(nums, k,n-1)
 
-        for i in range(index+1):
-            res.append(nums[i])
+
         
-        for i in range(n):
-            nums[i] = res[i]
+    def reverse(self,nums,left,right):
+        while left < right:
+            nums[left],nums[right] = nums[right], nums[left]
+            left += 1
+            right -= 1
