@@ -1,6 +1,5 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        return self.followUp(s)
         arr = []
         for c in s:
             if c.isdigit() or c.isalpha():
