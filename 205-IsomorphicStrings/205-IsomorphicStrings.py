@@ -1,16 +1,26 @@
 class Solution:
-    def isIsomorphic(self, s: str, t: str) -> bool:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        arr = s.split(" ")
+        if len(pattern) != len(arr):
+            return False
+
         see = {}
         tee = {}
 
-        for i in range(len(s)):
-            if s[i] not in see and t[i] not in tee:
-                see[s[i]] = t[i]
-                tee[t[i]] = s[i]
-            elif s[i] not in see or t[i] not in tee:
-                return False
+        for i in range(len(pattern)):
+            if pattern[i] not in see and arr[i] not in tee:
+                see[pattern[i]] = arr[i]
+                tee[arr[i]] = pattern[i]
 
-            elif see[s[i]] != t[i] or tee[t[i]] != s[i]:
+            elif pattern[i] not in see or arr[i] not in tee:
+                return False
+            
+            elif see[pattern[i]] != arr[i] or tee[arr[i]] != pattern[i]:
                 return False
 
         return True
+
+       
+
+            
+ 
