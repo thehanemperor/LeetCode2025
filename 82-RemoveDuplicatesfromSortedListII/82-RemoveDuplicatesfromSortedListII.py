@@ -18,7 +18,7 @@ class Solution:
                 prev.next = root.next
                 
             else:
-                prev.next = root
+                # prev.next = root
                 prev = root
             
             root = root.next
