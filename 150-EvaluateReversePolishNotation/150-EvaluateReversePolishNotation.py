@@ -6,7 +6,6 @@ class Solution:
             if t in "+-*/":
                 second = stack.pop()
                 first = stack.pop()
-                print(first,second)
                 if t == "+":
                     stack.append(first + second)
                 elif t == "-":
