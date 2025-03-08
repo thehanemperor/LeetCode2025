@@ -14,7 +14,7 @@ class Solution:
                     for row in range(len(island)):
                         island[row][0] -=i
                         island[row][1] -= col
-                    print(island)
+                    
                     self.addToUnique(uniqueIslands,island)
 
         return len(uniqueIslands)
