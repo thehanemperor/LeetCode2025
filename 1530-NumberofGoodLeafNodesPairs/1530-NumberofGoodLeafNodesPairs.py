@@ -8,8 +8,7 @@ class Solution:
     def countPairs(self, root: Optional[TreeNode], distance: int) -> int:
         self.leaf = []
         self.dfs(root,[])
-        for leaf in self.leaf:
-            print(len(leaf))
+
         res = 0
         for i in range(len(self.leaf)):
             for j in range(i+1, len(self.leaf)):
