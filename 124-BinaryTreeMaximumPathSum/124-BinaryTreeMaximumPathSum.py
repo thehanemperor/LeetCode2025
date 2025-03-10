@@ -9,14 +9,14 @@ class Solution:
         self.res = -float("inf")
         self.dfs(root)
         return self.res
-    def dfs(self, root):
+
+    def dfs(self,root):
         if not root:
             return 0
 
         left = self.dfs(root.left)
         right = self.dfs(root.right)
+        currMax = max(root.val, root.val+left+right, root.val+left, root.val+right)
+        self.res = max(self.res, currMax)
 
-        self.res = max(self.res, root.val, root.val+left+right, root.val+left, root.val +right)
-        return max(root.val+left, root.val +right, root.val) 
-
-        
+        return max(root.val+left, root.val+right,root.val)
