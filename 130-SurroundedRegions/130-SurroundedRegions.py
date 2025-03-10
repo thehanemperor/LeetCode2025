@@ -16,12 +16,10 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 if board[i][j] == "O":
-                    self.bfs(deque([(i,j)]), board, "X")
-
-        for i in range(m):
-            for j in range(n):
+                    board[i][j] = "X"
                 if board[i][j] == "E":
                     board[i][j] = "O"
+
 
         
     def bfs(self,queue,board,mark):
