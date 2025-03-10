@@ -13,19 +13,22 @@ class Solution:
             return node
 
         res = Node(node.val)
-        seen = {}
+        root = res
         queue = deque()
-        queue.append((node,res))
+        queue.append((node,root))
+        seen = {}
+        visited = set()
         while queue:
-            origin,copy = queue.popleft()
-            seen[origin] = copy
-            for nei in origin.neighbors:
-                if nei in seen:
-                    copy.neighbors.append(seen[nei])
-                else:
-                    tmp = Node(nei.val)
-                    seen[nei] = tmp
-                    copy.neighbors.append(tmp)
-                    queue.append((nei,tmp))
+            curr, copy = queue.popleft()
+            seen[curr] = copy
+            visited.add(curr)
+            for nei in curr.neighbors:
+                if nei not in seen:
+                    seen[nei] = Node(nei.val)
+                copy.neighbors.append(seen[nei])
+                if nei not in visited:
+                    queue.append((nei,seen[nei]))
+                    visited.add(nei)
 
         return res
+                
