@@ -7,9 +7,8 @@ class Solution:
         for i in range(m):
             for j in range(n):
                 curr = self.dfs(matrix,i,j,seen)
-                
-        # print(seen)
-        res = max(seen.values())
+                res = max(res,curr)
+        
         return res
 
     def dfs(self,matrix,x,y,seen):
