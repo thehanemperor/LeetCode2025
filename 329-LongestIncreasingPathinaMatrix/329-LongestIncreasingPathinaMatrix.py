@@ -44,6 +44,6 @@ class Solution:
             if 0<=i+x<m and 0<=j+y<n and matrix[i+x][j+y] > matrix[i][j] and longest-step ==seen[(i+x,j+y)] :
                 arr.append(matrix[i+x][j+y])
                 self.printPath(matrix, i+x,j+y,step+1,longest,arr,seen)
-                arr.pop()
+               
 
         return res
