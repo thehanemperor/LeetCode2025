@@ -5,18 +5,26 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxPathSum(self, root: Optional[TreeNode]) -> int:
-        self.res = -float("inf")
-        self.dfs(root)
-        return self.res
-
-    def dfs(self,root):
-        if not root:
-            return 0
-
-        left = self.dfs(root.left)
-        right = self.dfs(root.right)
-        currMax = max(root.val, root.val+left+right, root.val+left, root.val+right)
-        self.res = max(self.res, currMax)
-
-        return max(root.val+left, root.val+right,root.val)
+    def maxPathSum(self, root: TreeNode) -> int:
+        self.max_sum = float('-inf')
+        
+        def dfs(node):
+            if not node:
+                return 0
+            
+            # Recursively get gains from left and right subtrees
+            left_gain = max(0, dfs(node.left))
+            right_gain = max(0, dfs(node.right))
+            
+            # Current path sum passing through this node (taking both children)
+            current_path_sum = node.val + left_gain + right_gain
+            
+            # Update global maximum path sum
+            self.max_sum = max(self.max_sum, current_path_sum)
+            
+            # Return the maximum path sum going down from this node 
+            # (either to the left or right, or none if negative)
+            return node.val + max(left_gain, right_gain)
+        
+        dfs(root)
+        return self.max_sum
