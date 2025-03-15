@@ -8,7 +8,6 @@ class Solution:
             decreasingQ.append(i)
         res = []
         res.append(nums[decreasingQ[0]])
-        # res.append(nums[decreasingQ[0]])
 
         for i in range(k,len(nums)):
             if decreasingQ and i - decreasingQ[0] == k:
