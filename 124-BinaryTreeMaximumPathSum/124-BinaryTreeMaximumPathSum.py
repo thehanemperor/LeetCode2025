@@ -5,18 +5,17 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-    def maxPathSum(self, root: TreeNode) -> int:
-        self.res = -float("inf")
-        self.dfs(root)
-        return self.res
-
-    def dfs(self,root):
+    def __init__(self):
+        self.pathsum=float("-inf")
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        self.helper(root)
+        return self.pathsum
+    def helper(self,root):
         if not root:
             return 0
+        left = max(0, self.helper(root.left))
+        right = max(0, self.helper(root.right))
+        self.pathsum=max(self.pathsum,left+right+root.val)
+        return max(left,right)+root.val
 
-        left = max(0,self.dfs(root.left))
-        right = max(0, self.dfs(root.right))
-        curr = root.val + left + right
-        self.res = max(self.res, curr)
-
-        return max(root.val + left, root.val+right)
+        
