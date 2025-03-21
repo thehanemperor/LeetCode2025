@@ -1,4 +1,4 @@
-// Last updated: 3/21/2025, 1:46:47 AM
+// Last updated: 3/21/2025, 1:46:59 AM
 class Solution:
     def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[List[int]]:
         if not nums:
@@ -16,6 +16,7 @@ class Solution:
             left = nums[i]+1
             i += 1
 
+        # important here
         if upper > nums[n-1]:
             res.append([nums[n-1]+1,upper])
 
