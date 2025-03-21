@@ -1,4 +1,4 @@
-// Last updated: 3/21/2025, 2:10:58 AM
+// Last updated: 3/21/2025, 2:25:12 AM
 class Solution:
     def convertToTitle(self, columnNumber: int) -> str:
         n = columnNumber
