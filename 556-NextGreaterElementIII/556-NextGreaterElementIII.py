@@ -1,44 +1,36 @@
+// Last updated: 3/21/2025, 2:48:41 PM
 class Solution:
     def nextGreaterElement(self, n: int) -> int:
         arr = []
-        while n >0:
-            arr.append(n%10)
-            n = n //10
-        arr.reverse()
+        for num in str(n):
+            arr.append(num)
 
-        right = len(arr)-1
-        found = False
-        while right>=0:
-            if right +1 < len(arr) and arr[right] < arr[right+1]:
-                found = True
+        n = len(arr)
+        i = n-2
+        while i>=0:
+            curr = int(arr[i])
+            after = int(arr[i+1])
+            if curr < after:
                 break
-            right -= 1
-        
-        if not found:
+            i -= 1
+
+        if i <0:
             return -1
 
-        for i in range(len(arr)-1,right,-1):
-            if arr[i] > arr[right]:
-                arr[i],arr[right] = arr[right],arr[i]
+        left = i
+        for right in range(n-1,-1,-1):
+            if arr[right]>arr[left]:
                 break
+        arr[left],arr[right] = arr[right],arr[left]
 
-        left = right + 1
-        right = len(arr) -1
-        while left < right:
-            arr[left],arr[right] = arr[right],arr[left]
-            left += 1
-            right -= 1
+        i = left + 1
+        j = n -1
+        while i < j:
+            arr[i],arr[j] = arr[j],arr[i]
+            i += 1
+            j -= 1
 
-        power = len(arr)-1
-        res = 0
-        for num in arr:
-            res += num* 10**power
-            power -= 1
-        if res >= 2**31:
-            return -1
-        return res
-
-
-        
+        res = int("".join(arr))
+        return res if res <= 2**31-1 else -1
 
         
