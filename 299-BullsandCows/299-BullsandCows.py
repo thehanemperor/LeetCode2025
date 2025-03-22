@@ -1,4 +1,4 @@
-// Last updated: 3/22/2025, 2:03:32 AM
+// Last updated: 3/22/2025, 2:03:45 AM
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
         seen = {}
@@ -12,7 +12,6 @@ class Solution:
                 bull += 1
                 seen[secret[i]] -= 1
 
-        print(seen)
         for i in range(len(guess)):
 
             if guess[i]!=secret[i] and guess[i] in seen and seen[guess[i]] >0:
