@@ -1,16 +1,18 @@
-# Last updated: 3/24/2025, 2:03:45 AM
-class Solution:
-    def searchInsert(self, nums: List[int], target: int) -> int:
-        left = 0
-        right = len(nums) -1
+# Last updated: 3/24/2025, 2:07:36 AM
+# The isBadVersion API is already defined for you.
+# def isBadVersion(version: int) -> bool:
 
+class Solution:
+    def firstBadVersion(self, n: int) -> int:
+        left = 1
+        right = n
         while left <= right:
             mid = left + (right-left)//2
-            if nums[mid] == target:
-                return mid
-            elif nums[mid] < target:
+            if not isBadVersion(mid):
                 left = mid + 1
+
             else:
-                right = mid -1
+                right = mid - 1
 
         return left
+        
