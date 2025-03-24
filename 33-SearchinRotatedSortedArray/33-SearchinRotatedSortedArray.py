@@ -1,4 +1,4 @@
-# Last updated: 3/24/2025, 2:58:48 AM
+# Last updated: 3/24/2025, 2:58:55 AM
 class Solution:
     def search(self, nums: List[int], target: int) -> int:
         n = len(nums)
@@ -18,7 +18,7 @@ class Solution:
         else:
             right = left
             left = 0
-        print(left,right)
+
         while left <= right:
             mid = left + (right-left)//2
             if nums[mid] == target:
