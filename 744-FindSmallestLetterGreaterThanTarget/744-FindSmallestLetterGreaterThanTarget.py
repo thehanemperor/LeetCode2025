@@ -1,18 +1,32 @@
-# Last updated: 3/24/2025, 2:07:36 AM
-# The isBadVersion API is already defined for you.
-# def isBadVersion(version: int) -> bool:
-
+# Last updated: 3/24/2025, 2:16:59 AM
 class Solution:
-    def firstBadVersion(self, n: int) -> int:
-        left = 1
-        right = n
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        n = len(nums)
+        left = 0
+        right = n-1
+        res = []
+
         while left <= right:
             mid = left + (right-left)//2
-            if not isBadVersion(mid):
-                left = mid + 1
+            if nums[mid] >= target:
+                right = mid -1
 
             else:
-                right = mid - 1
+                left = mid + 1
 
-        return left
+        if left == n or nums[left]!= target:
+            return [-1,-1]
         
+        res.append(left)
+
+        left = 0
+        right = n -1
+        while left <= right:
+            mid = left + (right-left)//2
+            if nums[mid] <= target:
+                left = mid + 1
+            else:
+                right = mid -1
+
+        res.append(right)
+        return res        
