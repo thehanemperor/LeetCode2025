@@ -1,4 +1,4 @@
-# Last updated: 3/25/2025, 1:10:33 AM
+# Last updated: 3/25/2025, 1:10:55 AM
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
         graph = {}
@@ -7,10 +7,8 @@ class Solution:
             if i not in graph:
                     graph[i] = []
             for j in range(n):
-                if i == j:
-                    continue 
-                
-                
+                # if i == j:
+                #     continue 
                 if j not in graph:
                     graph[j] = []
                 xi,yi,ri = bombs[i]
