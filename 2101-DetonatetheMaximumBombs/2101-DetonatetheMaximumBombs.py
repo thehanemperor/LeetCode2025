@@ -1,14 +1,14 @@
-# Last updated: 3/25/2025, 1:11:04 AM
+# Last updated: 3/25/2025, 1:11:24 AM
 class Solution:
     def maximumDetonation(self, bombs: List[List[int]]) -> int:
         graph = {}
         n = len(bombs)
         for i in range(n):
-            # if i not in graph:
-            #         graph[i] = []
+            if i not in graph:
+                    graph[i] = []
             for j in range(n):
-                # if i == j:
-                #     continue 
+                if i == j:
+                    continue 
                 if j not in graph:
                     graph[j] = []
                 xi,yi,ri = bombs[i]
