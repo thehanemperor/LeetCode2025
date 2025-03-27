@@ -1,4 +1,4 @@
-# Last updated: 3/26/2025, 11:19:33 PM
+# Last updated: 3/26/2025, 11:19:38 PM
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         n = len(s)
@@ -9,5 +9,5 @@ class Solution:
                 if s[i:j+1] in wordDict and dp[i]:
                     dp[j+1] = True
                     
-        print(dp)
+        
         return dp[-1]
