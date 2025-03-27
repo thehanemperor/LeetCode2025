@@ -1,4 +1,4 @@
-# Last updated: 3/27/2025, 12:16:30 AM
+# Last updated: 3/27/2025, 12:16:39 AM
 class Trie:
     def __init__(self):
         self.node = {}
@@ -25,7 +25,6 @@ class Solution:
             return ""
         for w in res:
             longest = max(longest,len(w))
-        print(res)
 
         ret = []
         for w in res:
