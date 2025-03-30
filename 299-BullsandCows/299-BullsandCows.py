@@ -1,4 +1,4 @@
-// Last updated: 3/22/2025, 2:03:45 AM
+# Last updated: 3/30/2025, 2:01:32 AM
 class Solution:
     def getHint(self, secret: str, guess: str) -> str:
         seen = {}
@@ -10,12 +10,12 @@ class Solution:
         for i in range(len(guess)):
             if guess[i] == secret[i]:
                 bull += 1
-                seen[secret[i]] -= 1
+                # seen[secret[i]] -= 1
 
         for i in range(len(guess)):
 
-            if guess[i]!=secret[i] and guess[i] in seen and seen[guess[i]] >0:
+            if guess[i] in seen and seen[guess[i]] >0:
                 cow += 1
                 seen[guess[i]] -= 1
 
-        return "{}A{}B".format(bull,cow)
+        return "{}A{}B".format(bull,cow-bull)
