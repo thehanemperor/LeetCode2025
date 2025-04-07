@@ -1,22 +1,21 @@
-# Last updated: 4/1/2025, 8:37:34 PM
+# Last updated: 4/7/2025, 2:34:33 AM
 class Solution:
     def compress(self, chars: List[str]) -> int:
         left = right = 0
-        n = len(chars)
-        while right <n :
-            start = right
-            while right + 1 < n and chars[right+1] == chars[right]:
-                right += 1
-            
-            interval = right - start + 1
+        while right < len(chars):
+            groupLength = 1
+            while right +groupLength < len(chars) and chars[right] == chars[right+groupLength]:
+                groupLength += 1
+
             chars[left] = chars[right]
+            
             left += 1
-            if interval > 1:
-                tmp = str(interval)
-                for t in tmp:
+            if groupLength > 1:
+                tmpStr = str(groupLength)
+                for t in tmpStr:
                     chars[left] = t
                     left += 1
-            
-            right += 1
-            
+            right += groupLength
+
         return left
+             
